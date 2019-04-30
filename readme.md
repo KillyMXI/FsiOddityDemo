@@ -26,7 +26,14 @@ PS C:\...\FsiOddityDemo
 
 Solution had been built beforehand, IDE shows autocompletion for the script without issues.
 
-Referencing `A.dll` in the script doesn't change anything.
+Referencing `A.dll` in the script explicitly before `B.dll` doesn't change anything.
+
+Switching between `fsi.exe` from following locations doesn't change anything:
+
+* `C:\Program Files\dotnet\sdk\2.2.202\FSharp`
+* `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\FSharp`
+
+(Both are shown as `Microsoft (R) F# Interactive version 10.4.0 for F# 4.6`.)
 
 This is the main issue. Following are some experiments to narrow it down.
 
@@ -42,7 +49,7 @@ This is the main issue. Following are some experiments to narrow it down.
 
 ```
 
-This is not be a feasible way in case of bigger projects with many files. This will require manual tracking of code structure changes.
+This is not a feasible way in case of bigger projects with many files. This will require manual tracking of code structure changes.
 
 ## Checking that library dependencies are solved when used from elsewhere
 
@@ -54,9 +61,9 @@ I got another [issue](https://github.com/ionide/ionide-vscode-fsharp/issues/924)
 
 ### Referencing a dll
 
-Added `B.DllTests` project to do the same while referencing dll instead of fsproj. This works too, but after small fix.
+Added `B.DllTests` project to do the same while referencing dll instead of fsproj. This works too, after a small fix.
 
-I added the dll reference using [DCE](https://marketplace.visualstudio.com/items?itemName=kishoreithadi.dotnet-core-essentials) Add DLL Reference feature. The reference in the fsproj file looked like this:
+I added the dll reference using [DCE](https://marketplace.visualstudio.com/items?itemName=kishoreithadi.dotnet-core-essentials) "Add DLL Reference" feature. The reference in the fsproj file looked like this:
 
 ```xml
     <ItemGroup>
@@ -66,4 +73,4 @@ I added the dll reference using [DCE](https://marketplace.visualstudio.com/items
     </ItemGroup>
 ```
 
-Which is wrong. Changing path to `..\B\bin\Debug\netcoreapp2.2\B.dll` manually made it to work as intended. Again, this might be something to look into later, but it seems to be irrelevant to the FSI issue.
+Which is wrong. Changing path to `..\B\bin\Debug\netcoreapp2.2\B.dll` manually made it to work as intended. Again, this might be something to look into later, but it is irrelevant to the FSI issue above.
