@@ -6,6 +6,7 @@
     <ProjectReference Include="..\A\A.fsproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Squarer.fs" />
     <Compile Include="LibraryB.fs" />
   </ItemGroup>
 </Project>
