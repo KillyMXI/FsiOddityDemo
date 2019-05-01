@@ -1,5 +1,13 @@
 # The issue
 
+## The solution (starting from the end)
+
+[The issue](https://github.com/Microsoft/visualfsharp/issues/6662) as described below does happen on .NET Core 2.2 (most up to date release at the moment of writing this update).
+
+Many problems with finding assemblies were solved during .NET Core 3.0 development. Tested with [v3.0.0-preview4](https://dotnet.microsoft.com/download/dotnet-core/3.0) (latest preview to this date) and it seems to work fine. No changes in code needed. `dotnet.exe` just have to be the fresh one.
+
+And for .NET Core 2.2 there is one way to get it working, described below.
+
 ## Referencing library dll from a script (library project depends on another library project) - Debug build
 
 The script `script.fsx` trying to make use of the library `B.dll`.
