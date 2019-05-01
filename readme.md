@@ -1,6 +1,6 @@
 # The issue
 
-## Referencing library dll from a script (library project depends on another library project)
+## Referencing library dll from a script (library project depends on another library project) - Debug build
 
 The script `script.fsx` trying to make use of the library `B.dll`.
 
@@ -35,7 +35,7 @@ Switching between `fsi.exe` from following locations doesn't change anything:
 
 (Both are shown as `Microsoft (R) F# Interactive version 10.4.0 for F# 4.6`.)
 
-## Referencing library dll from a script (library project depends on another library dll)
+## Referencing library dll from a script (library project depends on another library dll) - Debug build
 
 The script `script3.fsx` trying to make use of the library `C.dll`.
 
@@ -56,6 +56,30 @@ Stopped due to error
 PS C:\...\FsiOddityDemo
 [3] >
 ```
+
+## Release builds of above two options
+
+It isn't clear how to choose the release build from GUI tools available in vscode so I went with what's available.
+
+Now let's check it specifically.
+
+```powershell
+> dotnet build .\B\B.fsproj -c Release
+> dotnet build .\C\C.fsproj -c Release
+
+> dotnet fsi .\script.release.fsx
+5 ^2 *2 = 50
+> dotnet fsi .\script3.release.fsx
+System.IO.FileNotFoundException: Could not load file or assembly 'A, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+File name: 'A, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'
+   at C.Doer.doStuff(Int32 x)
+   at <StartupCode$FSI_0001>.$FSI_0001.main@()
+
+
+Stopped due to error
+```
+
+This means the bug is absent in the release build when the reference is made by project, not dll.
 
 ## Loading source files into the script
 
