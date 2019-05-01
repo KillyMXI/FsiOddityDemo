@@ -1,4 +1,4 @@
-#I "C\\bin\\Debug\\netcoreapp2.2";;
+#I "C/bin/Debug/netcoreapp2.2";;
 #r "C.dll";;
 
 C.Doer.doStuff 5

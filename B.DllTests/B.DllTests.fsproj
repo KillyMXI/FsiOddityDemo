@@ -15,7 +15,7 @@
     </ItemGroup>
     <ItemGroup>
         <Reference Include="B">
-            <HintPath>..\B\bin\Debug\netcoreapp2.2\B.dll</HintPath>
+            <HintPath>../B/bin/Debug/netcoreapp2.2/B.dll</HintPath>
         </Reference>
     </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A\A.fsproj" />
+    <ProjectReference Include="../A/A.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Squarer.fs" />
