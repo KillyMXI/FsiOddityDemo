@@ -1,10 +1,10 @@
 # The issue
 
-## Referencing library dll from a script
+## Referencing library dll from a script (library project depends on another library project)
 
-The script trying to make use of the library `B.dll`.
+The script `script.fsx` trying to make use of the library `B.dll`.
 
-The library `B.dll`, in turn, uses a function from `A.dll`.
+The library `B.dll`, in turn, uses a function from `A.dll` (`B.fsproj` has a reference to `A.fsproj`).
 
 Trying to run the `script.fsx` leads to an error:
 
@@ -35,11 +35,31 @@ Switching between `fsi.exe` from following locations doesn't change anything:
 
 (Both are shown as `Microsoft (R) F# Interactive version 10.4.0 for F# 4.6`.)
 
-This is the main issue. Following are some experiments to narrow it down.
+## Referencing library dll from a script (library project depends on another library dll)
+
+The script `script3.fsx` trying to make use of the library `C.dll`.
+
+The library `C.dll`, in turn, uses a function from `A.dll`. (`C.fsproj` has a reference to `A.dll`).
+
+Trying to run the `script3.fsx` leads to the same as above error:
+
+```powershell
+PS C:\...\FsiOddityDemo
+[2] > dotnet fsi .\script3.fsx
+System.IO.FileNotFoundException: Could not load file or assembly 'A, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+File name: 'A, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'
+   at C.Doer.doStuff(Int32 x)
+   at <StartupCode$FSI_0001>.$FSI_0001.main@()
+
+
+Stopped due to error
+PS C:\...\FsiOddityDemo
+[3] >
+```
 
 ## Loading source files into the script
 
-`script2.fsx` works around the issue by loading all source files directly:
+The script `script2.fsx` works around the issue by loading all source files directly:
 
 ```powershell
 

@@ -11,6 +11,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "B.Tests", "B.Tests\B.Tests.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "B.DllTests", "B.DllTests\B.DllTests.fsproj", "{583F2D97-FD0A-4CB2-9E1E-6C7864D17D04}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "C", "C\C.fsproj", "{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{583F2D97-FD0A-4CB2-9E1E-6C7864D17D04}.Release|x64.Build.0 = Release|Any CPU
 		{583F2D97-FD0A-4CB2-9E1E-6C7864D17D04}.Release|x86.ActiveCfg = Release|Any CPU
 		{583F2D97-FD0A-4CB2-9E1E-6C7864D17D04}.Release|x86.Build.0 = Release|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Debug|x64.Build.0 = Debug|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Debug|x86.Build.0 = Debug|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Release|x64.ActiveCfg = Release|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Release|x64.Build.0 = Release|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Release|x86.ActiveCfg = Release|Any CPU
+		{BB6993EC-C867-4F1F-9CF2-6563C6EE205F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
