@@ -2,11 +2,13 @@
 
 ## The solution (starting from the end)
 
-[The issue](https://github.com/Microsoft/visualfsharp/issues/6662) as described below does happen on .NET Core 2.2 (most up to date release at the moment of writing this update).
+[The issue](https://github.com/Microsoft/visualfsharp/issues/6662) as described below was happening on .NET Core 2.2 until 2019-05-21.
 
-The fix is currently available in the preview versions of .NET Core and will get into releases of 2.1 and 2.2 some day (and 3.0 of course). No changes in code  needed, `dotnet.exe` just have to be the fresh one.
+The fix is currently available in the public versions of .NET Core SDK starting from 2.1.700 and 2.2.300. No changes in code  needed, `dotnet.exe` just have to be the fresh one.
 
-And for current version of .NET Core 2.2 there is one way to get it working, described below.
+On older versions, it might work fine with release build, as shown below.
+
+This information below is now outdated, referencing is working fine with public up to date versions. This repo will be kept only for historical reasons.
 
 ## Referencing library dll from a script (library project depends on another library project) - Debug build
 
